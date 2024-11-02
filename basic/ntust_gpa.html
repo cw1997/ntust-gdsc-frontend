@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NTUST GPA calculation</title>
+</head>
+<body style="height: 100vh;margin: 0;padding: 24px;box-sizing: border-box;">
+    <h1>NTUST GPA calculation</h1>
+    <!-- https://academic.ntust.edu.tw/var/file/48/1048/img/2555/GPAGradingSystem(fromSep2015).pdf -->
+    <div>
+        <select id="grade">
+            <optgroup label="A">
+                <option value="4.3">A+</option>
+                <option value="4.0">A</option>
+                <option value="3.7">A-</option>
+            </optgroup>
+            <optgroup label="A">
+                <option value="3.3">B+</option>
+                <option value="3.0">B</option>
+                <option value="2.7">B-</option>
+            </optgroup>
+            <optgroup label="A">
+                <option value="2.3">C+</option>
+                <option value="2.0">C</option>
+                <option value="1.7">C-</option>
+            </optgroup>
+            <optgroup label="A">
+                <option value="1.0">D</option>
+                <option value="0.0">E</option>
+                <option value="0.0">X</option>
+            </optgroup>
+        </select>
+        <button onclick="calculate()">calculate</button>
+    </div>
+    <hr />
+    <p>Quality Points: <span id="quality_points" style="font-weight: 600;"></span></p>
+    <p>Score: <span id="score" style="font-weight: 600;"></span></p>
+
+    <script>
+        function calculate() {
+            const dom_grade = document.getElementById("grade");
+            const val_grade = dom_grade.options[dom_grade.selectedIndex].text;
+            alert("You select the grade is " + val_grade);
+            const val_quality_points = dom_grade.value;
+
+            const dom_quality_points = document.getElementById("quality_points");
+            dom_quality_points.innerHTML = val_quality_points;
+
+            const dom_score = document.getElementById("score");
+            dom_score.innerHTML = (val_quality_points / 4.3) * 100;
+        }
+    </script>
+
+</body>
+</html>

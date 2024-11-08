@@ -4,8 +4,10 @@ const ReactDOM = require("react-dom")
 const styles = require("./style.module.css")
 
 const dom_app = document.getElementById('app')
-const root = ReactDOM.createRoot(dom_app);
-root.render(<App />);
+if (dom_app) {
+  const root = ReactDOM.createRoot(dom_app);
+  root.render(<App />);
+}
 
 function App() {
   return (
@@ -15,7 +17,7 @@ function App() {
       <InstagramPost name={"gdg.ntust"} photo={
         <img
           src="./gdg_ntust.jpg"
-          alt="gdd ntust"
+          alt="gdg ntust"
         />
       } intraction={{like: 321, comment: 789}} />
     </main>

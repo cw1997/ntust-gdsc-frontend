@@ -1,6 +1,8 @@
 const React = require("react")
 const ReactDOM = require("react-dom")
 
+const styles = require("./style.module.css")
+
 const dom_app = document.getElementById('app')
 const root = ReactDOM.createRoot(dom_app);
 root.render(<App />);
@@ -32,8 +34,8 @@ function InstagramPost(props) {
         {props.photo}
       </div>
       <div>
-        <div onClick={() => setLike((draft) => draft + 1)}>Like: {like}</div>
-        <div onClick={() => setComment((draft) => draft + 1)}>Comment: {comment}</div>
+        <div className={styles.like} onClick={() => setLike((draft) => draft + 1)}>Like: {like}</div>
+        <div className={styles.comment} onClick={() => setComment((draft) => draft + 1)}>Comment: {comment}</div>
       </div>
       <hr/>
     </div>

@@ -1,7 +1,39 @@
-// const {MyCls} = require("./cls.js")
 const React = require("react")
 const ReactDOM = require("react-dom")
 
 const dom_app = document.getElementById('app')
 const root = ReactDOM.createRoot(dom_app);
-root.render(<h1>Hello, world!</h1>);
+root.render(<App />);
+
+function App() {
+  return (
+    <main>
+      <InstagramPost name={"changwei1997"} photo={"假裝這裡有照片"} intraction={{like: 12, comment: 56}} />
+      <InstagramPost name={"ntust"} photo={"Tiger Duck"} intraction={{like: 78, comment: 910}} />
+      <InstagramPost name={"gdg.ntust"} photo={
+        <img
+          src="./gdg_ntust.jpg"
+          alt="gdd ntust"
+        />
+      } intraction={{like: 321, comment: 789}} />
+    </main>
+  )
+}
+
+function InstagramPost(props) {
+  return (
+    <div>
+      <div>
+        [Avatar]: Name: {props.name}
+      </div>
+      <div>
+        {props.photo}
+      </div>
+      <div>
+        <div>Like: {props.intraction.like}</div>
+        <div>Comment: {props.intraction.comment}</div>
+      </div>
+      <hr/>
+    </div>
+  )
+}

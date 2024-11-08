@@ -21,6 +21,8 @@ function App() {
 }
 
 function InstagramPost(props) {
+  const [like, setLike] = React.useState(props.intraction.like)
+  const [comment, setComment] = React.useState(props.intraction.comment)
   return (
     <div>
       <div>
@@ -30,8 +32,8 @@ function InstagramPost(props) {
         {props.photo}
       </div>
       <div>
-        <div>Like: {props.intraction.like}</div>
-        <div>Comment: {props.intraction.comment}</div>
+        <div onClick={() => setLike((draft) => draft + 1)}>Like: {like}</div>
+        <div onClick={() => setComment((draft) => draft + 1)}>Comment: {comment}</div>
       </div>
       <hr/>
     </div>

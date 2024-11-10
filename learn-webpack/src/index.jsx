@@ -27,6 +27,9 @@ function App() {
 function InstagramPost(props) {
   const [like, setLike] = React.useState(props.intraction.like)
   const [comment, setComment] = React.useState(props.intraction.comment)
+  React.useEffect(() => {
+    window.document.title = "set by React.useEffect"
+  }, [])
   return (
     <div>
       <div>

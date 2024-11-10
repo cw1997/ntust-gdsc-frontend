@@ -1,5 +1,5 @@
 const React = require("react")
-const ReactDOM = require("react-dom/client")
+const ReactDOM = require("react-dom")
 
 const styles = require("./style.module.css")
 
@@ -30,6 +30,7 @@ function InstagramPost(props) {
   React.useEffect(() => {
     window.document.title = "set by React.useEffect"
   }, [])
+  const dom_video = React.useRef(null)
   return (
     <div>
       <div>
@@ -37,11 +38,15 @@ function InstagramPost(props) {
       </div>
       <div>
         {/*{props.photo}*/}
-        <video src="https://www.ntust.edu.tw/var/file/0/1000/img/4/NTUST-3min.wmv"></video>
+        <video width={320} height={240} ref={dom_video}>
+          <source src="./NTUST-3min-1M.mp4" type="video/mp4"/>
+        </video>
       </div>
       <div>
         <div className={styles.like} onClick={() => setLike((draft) => draft + 1)}>Like: {like}</div>
         <div className={styles.comment} onClick={() => setComment((draft) => draft + 1)}>Comment: {comment}</div>
+        <button onClick={() => dom_video.current.play()}>Play</button>
+        <button onClick={() => dom_video.current.pause()}>Pause</button>
       </div>
       <hr/>
     </div>

@@ -1,5 +1,5 @@
 const React = require("react")
-const ReactDOM = require("react-dom")
+const ReactDOM = require("react-dom/client")
 
 const styles = require("./style.module.css")
 
@@ -36,7 +36,8 @@ function InstagramPost(props) {
         [Avatar]: Name: {props.name}
       </div>
       <div>
-        {props.photo}
+        {/*{props.photo}*/}
+        <video src="https://www.ntust.edu.tw/var/file/0/1000/img/4/NTUST-3min.wmv"></video>
       </div>
       <div>
         <div className={styles.like} onClick={() => setLike((draft) => draft + 1)}>Like: {like}</div>
